@@ -1,4 +1,4 @@
-// server.js - Secure Mailgun Proxy for Chatbot Lead Submission
+// server.js - Secure Mailgun Proxy for Website Lead Submission
 import express from 'express';
 import cors from 'cors';
 import fetch from 'node-fetch';
@@ -29,9 +29,9 @@ app.post('/chat-lead', async (req, res) => {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       body: new URLSearchParams({
-        from: `Harris Homes Bot <bot@${process.env.MAILGUN_DOMAIN}>`,
+        from: `Harris Homes Web <web@${process.env.MAILGUN_DOMAIN}>`,
         to: process.env.FORWARD_TO_EMAIL,
-        subject: 'New Lead from Harris Homes Chatbot',
+        subject: 'New Lead from Harris Homes Web',
         text: `Name: ${name}\nEmail: ${email}\n\n${message}`
       })
     });
